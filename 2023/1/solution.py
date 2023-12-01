@@ -1,8 +1,6 @@
 import sys
 import re
 
-with open(sys.argv[1]) as f:
-    input = f.readlines()
 
 digit_name_map = {
     "zero": "0",
@@ -24,4 +22,6 @@ def extract_calibration(line):
     return int(f"{digits[0]}{digits[-1]}")
 
 
-print(sum(extract_calibration(line) for line in input))
+with open(sys.argv[1]) as f:
+    print(sum(extract_calibration(line) for line in f.readlines()))
+
