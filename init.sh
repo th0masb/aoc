@@ -9,6 +9,7 @@ mkdir -p "$problem_dir"
 touch "$problem_dir/input.txt"
 cat > "$problem_dir/a.py" << EOL
 #!/usr/bin/env python3
+
 import sys
 from pathlib import Path
 

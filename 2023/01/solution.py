@@ -15,7 +15,7 @@ digit_name_map = {
     "nine": "9"
 }
 
-digit = re.compile("\d|" + "|".join(digit_name_map.keys()))
+digit = re.compile(r"\d|" + "|".join(digit_name_map.keys()))
 
 def extract_calibration(line):
     digits = [digit_name_map.get(d, d) for d in digit.findall(line)]
