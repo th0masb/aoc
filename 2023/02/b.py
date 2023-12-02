@@ -1,8 +1,10 @@
+#!/usr/bin/env python3
 import sys
+from pathlib import Path
 import re
 from math import prod
 
-with open(sys.argv[1]) as f:
+with open(Path(sys.argv[0]).parent / "input.txt") as f:
     input = [line.strip() for line in f.readlines()]
 
 game_id = re.compile("Game (\d+):")
