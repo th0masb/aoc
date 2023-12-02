@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import sys
 from pathlib import Path
+from operator import and_
+from itertools import batched
+from functools import reduce
 
 with open(Path(sys.argv[0]).parent / "input.txt") as f:
     input = [line.strip() for line in f.readlines()]
@@ -11,9 +14,8 @@ def get_priority_map():
     upper = [chr(n) for n in range(ord("A"), ord("Z") + 1)]
     return { str(c): i + 1 for i, c in enumerate(lower + upper) }
 
-def get_common_item(rucksack: str):
-    mid = int(len(rucksack) / 2)
-    return next(iter(set(rucksack[:mid]) & set(rucksack[mid:])))
+def get_badge(bags: list[str]):
+    return reduce(and_, map(set, bags)).pop()
 
 priorities = get_priority_map()
-print(sum(priorities[get_common_item(r)] for r in input))
+print(sum(priorities[get_badge(b)] for b in batched(input, 3)))
