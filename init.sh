@@ -11,6 +11,6 @@ cat > "$problem_dir/a.py" << EOL
 import sys
 
 with open(sys.argv[1]) as f:
-    input = f.readlines()
+    input = [line.strip() for line in f.readlines()]
 
 EOL
