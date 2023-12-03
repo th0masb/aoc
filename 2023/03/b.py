@@ -11,7 +11,6 @@ import re
 with open(Path(sys.argv[0]).parent / "input.txt") as f:
     input = [line.strip() for line in f.readlines()]
 
-grid_rows = len(input)
 grid_cols = len(input[0])
 grid = "".join(input)
 nbd_shifts = list(chain(
