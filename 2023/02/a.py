@@ -4,8 +4,8 @@ import re
 with open(sys.argv[1]) as f:
     input = [line.strip() for line in f.readlines()]
 
-game_id = re.compile("Game (\d+):")
-ball_count = re.compile("(\d+)\s+(red|green|blue)")
+game_id = re.compile(r"Game (\d+):")
+ball_count = re.compile(r"(\d+)\s+(red|green|blue)")
 max_counts = { "r": 12, "g": 13, "b": 14 }
 
 def parse_game(game: str):
