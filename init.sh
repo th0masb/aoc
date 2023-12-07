@@ -16,5 +16,8 @@ from pathlib import Path
 with open(Path(sys.argv[0]).parent / "input.txt") as f:
     input = [line.strip() for line in f.readlines()]
 
+with open(Path(sys.argv[0]).parent / "test.txt") as f:
+    test_input = [line.strip() for line in f.readlines()]
+
 EOL
 chmod +x "$problem_dir/a.py"
