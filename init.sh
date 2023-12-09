@@ -6,7 +6,7 @@ problem_dir="$(dirname "$0")/$1/$2"
 
 mkdir -p "$problem_dir"
 
-touch "$problem_dir/input.txt"
+touch "$problem_dir"/{input.txt,test.txt}
 cat > "$problem_dir/a.py" << EOL
 #!/usr/bin/env python3
 
@@ -14,10 +14,12 @@ import sys
 from pathlib import Path
 
 with open(Path(sys.argv[0]).parent / "input.txt") as f:
-    input = [line.strip() for line in f.readlines()]
+    real_input = [line.strip() for line in f.readlines()]
 
 with open(Path(sys.argv[0]).parent / "test.txt") as f:
     test_input = [line.strip() for line in f.readlines()]
+
+input = real_input
 
 EOL
 chmod +x "$problem_dir/a.py"
