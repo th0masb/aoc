@@ -19,7 +19,7 @@ for line in input[2:]:
     src, left, right = re.findall(r"[A-Z0-9]{3}", line)
     mapping[src] = (left, right)
 
-def compute_loop_size(start):
+def compute_loop_count(start):
     current = start
     for i, dir in enumerate(cycle(input[0])):
         left, right = mapping[current]
@@ -30,4 +30,4 @@ def compute_loop_size(start):
             current = next_step
 
 starts = [k for k in mapping.keys() if k[-1] == 'A']
-print(lcm(*[compute_loop_size(s) for s in starts]) * len(input[0]))
+print(lcm(*[compute_loop_count(s) for s in starts]) * len(input[0]))
